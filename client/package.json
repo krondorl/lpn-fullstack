@@ -1,0 +1,13 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "description": "Client of Life Path Number calculator",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [
+    "life path number",
+    "calculator"
+  ],
+  "author": "Adam Burucs",
+  "license": "CC BY-NC-ND 4.0"
+}
