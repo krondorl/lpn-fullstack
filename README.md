@@ -18,9 +18,8 @@ My aim is to deepen my Rust language knowledge. In this project I rewrite the cl
 
 ## Technical Requirements
 
-- Node.js
-- npm
-- Rust
+- Node.js >= v20.9.0
+- Rust >= v1.74.1
 
 ## How to use
 
