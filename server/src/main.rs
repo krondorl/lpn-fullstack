@@ -1,6 +1,8 @@
 use axum::{response::Html, routing::get, Router};
 use serde::{Deserialize, Serialize};
 use std::fs;
+use sum::sum_recursive;
+mod sum;
 
 #[derive(Serialize, Deserialize, Debug)]
 struct LifePath {
@@ -8,6 +10,22 @@ struct LifePath {
     role: String,
     positive: String,
     negative: String,
+}
+
+fn calculate_lp_number(birth_time: String) -> Result<u32, String> {
+    if birth_time.len() == 10 {
+        let split_birth_time_parts = birth_time.split('-');
+        let mut birth_concat = String::new();
+        for part in split_birth_time_parts {
+            birth_concat.push_str(part);
+        }
+        match birth_concat.parse::<u32>() {
+            Ok(val) => Ok(sum_recursive(val)),
+            Err(_) => Err(String::from("Error: converting to number.")),
+        }
+    } else {
+        Err(String::from("Error: wrong birth time."))
+    }
 }
 
 fn read_data() -> Result<Vec<LifePath>, String> {
@@ -52,5 +70,20 @@ async fn main() {
             run_server().await;
         }
         Err(e) => println!("{e}"),
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::calculate_lp_number;
+
+    #[test]
+    fn calculate_lp_number_test() {
+        assert_eq!(calculate_lp_number(String::from("1984-12-17")), Ok(6));
+        assert_eq!(calculate_lp_number(String::from("2000-01-01")), Ok(4));
+        assert_eq!(
+            calculate_lp_number(String::from("11")),
+            Err(String::from("Error: wrong birth time."))
+        );
     }
 }
