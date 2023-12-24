@@ -11,8 +11,8 @@ My aim is to deepen my Rust language knowledge. In this project I rewrite the cl
 ## Features
 
 - Monorepo structure
-- JavaScript frontend (Vite)
-- Rust backend (Axum)
+- JavaScript frontend ([Vite](https://vitejs.dev/))
+- Rust backend ([Axum](https://crates.io/crates/axum))
 - JSON data
 - REST API
 
@@ -23,6 +23,13 @@ My aim is to deepen my Rust language knowledge. In this project I rewrite the cl
 - Rust
 
 ## How to use
+
+First you need to have [Node.js](https://nodejs.org/en) and [Rust](https://www.rust-lang.org/tools/install) installed on your computer.
+
+1. In `client` folder run: `npm install`
+1. In `server` directory execute: `cargo run`
+1. In `client` folder run: `npm run dev`
+1. Open a browser at `http://localhost:5173/`
 
 ## Making a build
 
