@@ -52,16 +52,6 @@ fn read_data() -> Result<Vec<LifePath>, String> {
     }
 }
 
-// async fn run_server() {
-//     let app = Router::new().route("/", get(handler));
-
-//     let listener = tokio::net::TcpListener::bind("127.0.0.1:3000")
-//         .await
-//         .unwrap();
-//     println!("listening on {}", listener.local_addr().unwrap());
-//     axum::serve(listener, app).await.unwrap();
-// }
-
 async fn send_lpn(Path(birth_date): Path<String>) -> Json<LifePath> {
     let lpn = LifePath {
         lpn: 99,
@@ -76,12 +66,6 @@ async fn run_backend() {
     let app = Router::new()
         .route("/api/lpn-calc/:birth_date", get(send_lpn))
         .layer(
-            // see https://docs.rs/tower-http/latest/tower_http/cors/index.html
-            // for more details
-            //
-            // pay attention that for some request types like posting content-type: application/json
-            // it is required to add ".allow_headers([http::header::CONTENT_TYPE])"
-            // or see this issue https://github.com/tokio-rs/axum/issues/849
             CorsLayer::new()
                 .allow_headers([http::header::CONTENT_TYPE])
                 .allow_origin("http://localhost:3000".parse::<HeaderValue>().unwrap())
