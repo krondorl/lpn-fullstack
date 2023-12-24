@@ -1,3 +1,9 @@
+// Made by Adam Burucs in 2023.
+//
+// License:
+// Attribution-NonCommercial-NoDerivatives 4.0 International
+// (CC BY-NC-ND 4.0)
+
 use axum::{
     extract::Path,
     http::{self, HeaderValue, Method},

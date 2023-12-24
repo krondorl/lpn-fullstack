@@ -1,3 +1,9 @@
+// Made by Adam Burucs in 2023.
+//
+// License:
+// Attribution-NonCommercial-NoDerivatives 4.0 International
+// (CC BY-NC-ND 4.0)
+
 pub fn sum_recursive(raw_number: u32) -> u32 {
     if raw_number < 10 {
         return raw_number;
