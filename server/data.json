@@ -1,0 +1,56 @@
+[
+  {
+    "lpn": 1,
+    "role": "leader",
+    "positive": "confident, independent, inventive, creative",
+    "negative": "dissatisfaction under generosity, self-centeredness"
+  },
+  {
+    "lpn": 2,
+    "role": "mediator",
+    "positive": "harmonious, compassionate, good listener, intuitive",
+    "negative": "uncertainty, can be overly sensitive, blaming others for causing confusion"
+  },
+  {
+    "lpn": 3,
+    "role": "artist",
+    "positive": "self-expression, optimistic, great communicator, charismatic",
+    "negative": "frivolous, superficial, withdrawing, hiding feelings"
+  },
+  {
+    "lpn": 4,
+    "role": "builder",
+    "positive": "loyal, reliable, determined, disciplined",
+    "negative": "stubborn, bossy, dominant, too focused on details"
+  },
+  {
+    "lpn": 5,
+    "role": "communicator",
+    "positive": "curious, adaptable, spontaneous, versatile",
+    "negative": "lack of discipline and focus, overwhelmed by too many opportunities"
+  },
+  {
+    "lpn": 6,
+    "role": "teacher",
+    "positive": "generous, patient, honest, helpful",
+    "negative": "can become overly critical, overwhelmed by responsibility"
+  },
+  {
+    "lpn": 7,
+    "role": "individualist",
+    "positive": "detail-oriented, intellectual, intuitive, lone-wolf",
+    "negative": "selfishness, cold-hearted, having low level of empathy"
+  },
+  {
+    "lpn": 8,
+    "role": "goal-setter",
+    "positive": "ambitious, goal-oriented, materialistic, driven",
+    "negative": "obsession with money and status, intolerant, risk avoidant"
+  },
+  {
+    "lpn": 9,
+    "role": "humanitarian",
+    "positive": "generous, wise, spiritual, creative",
+    "negative": "selflessness and awareness can be a difficult lesson"
+  }
+]
