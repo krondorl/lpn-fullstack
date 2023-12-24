@@ -11,6 +11,11 @@ const resultContainer = document.querySelector(".result");
 const resultSpan = document.querySelector(".result-number");
 const summaries = document.querySelectorAll("details");
 
+const lpn = document.querySelector(".lpn");
+const role = document.querySelector(".role");
+const positive = document.querySelector(".positive");
+const negative = document.querySelector(".negative");
+
 function closeLPDetails() {
   summaries.forEach((summary) => {
     summary.open = false;
@@ -33,7 +38,19 @@ document.querySelector("#submit").addEventListener("click", () => {
   summaries.forEach((summary) => (summary.open = false));
   const _date = document.querySelector("#date").value;
   if (_date && _date.length === 10) {
-    // @todo GET Request
+    const apiUrl = "http://localhost:8080/api/lpn-calc";
+    fetch(`${apiUrl}/${_date}`)
+      .then((lpnDataResponse) => {
+        if (lpnDataResponse.ok) {
+          return lpnDataResponse.json();
+        }
+      })
+      .then((json) => {
+        console.log(json);
+      })
+      .catch((err) => {
+        console.error("Error during fetch: ", err);
+      });
   } else {
     console.log("Wrong date ", _date);
   }
