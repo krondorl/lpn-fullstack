@@ -6,6 +6,7 @@
 
 use axum::{
     extract::Path,
+    extract::State,
     http::{self, HeaderValue, Method},
     response::Json,
     routing::get,
@@ -13,11 +14,16 @@ use axum::{
 };
 use serde::{Deserialize, Serialize};
 use std::fs;
-use sum::sum_recursive;
+use sum::{sum_numbers, sum_recursive};
 use tower_http::cors::CorsLayer;
 mod sum;
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Clone)]
+struct AppState {
+    life_paths: Vec<LifePath>,
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
 struct LifePath {
     lpn: u8,
     role: String,
@@ -58,19 +64,24 @@ fn read_data() -> Result<Vec<LifePath>, String> {
     }
 }
 
-async fn send_lpn(Path(birth_date): Path<String>) -> Json<LifePath> {
-    let lpn = LifePath {
-        lpn: 99,
-        role: String::from("test role"),
-        positive: String::from("calm, collected, clever"),
-        negative: String::from("bossy"),
-    };
-    Json(lpn)
+async fn send_lpn(
+    Path(birth_date): Path<String>,
+    State(state): State<AppState>,
+) -> Result<Json<LifePath>, String> {
+    let calculated_life_path = calculate_lp_number(birth_date);
+    match calculated_life_path {
+        Ok(lp_val) => {
+            let life_path = state.life_paths[(lp_val - 1) as usize].clone();
+            Ok(Json(life_path))
+        }
+        Err(e) => Err(String::from("Error: life path number calculation error.")),
+    }
 }
 
-async fn run_backend() {
+async fn run_backend(state: AppState) {
     let app = Router::new()
         .route("/api/lpn-calc/:birth_date", get(send_lpn))
+        .with_state(state)
         .layer(
             CorsLayer::new()
                 .allow_headers([http::header::CONTENT_TYPE])
@@ -88,11 +99,13 @@ async fn run_backend() {
 async fn main() {
     let data = read_data();
     match data {
-        Ok(val) => {
-            let _ok_data = val;
+        Ok(ok_data) => {
             println!("Data is loaded. Starting server...");
             println!();
-            run_backend().await;
+            run_backend(AppState {
+                life_paths: ok_data,
+            })
+            .await;
         }
         Err(e) => println!("{e}"),
     }
