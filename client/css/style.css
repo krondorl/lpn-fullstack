@@ -1,0 +1,115 @@
+/**
+ * @license
+ * Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)
+ * https://creativecommons.org/licenses/by-nc-nd/4.0/
+ * Made by Adam Burucs in 2023.
+ * 
+ * Please see LICENSE file in the repo root folder.
+ */
+:root {
+  --clr-dice-purple: #7747a0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.result {
+  display: none;
+
+  & p {
+    font-size: 1.75rem;
+  }
+}
+
+.wrapper {
+  margin-inline: auto;
+  max-width: 36rem;
+  padding: 1rem;
+}
+
+form {
+  border: 0.35rem solid rgb(224, 224, 224);
+  margin-block: 0.25rem 1rem;
+  padding: 0.5rem;
+}
+
+header {
+  background-color: #fffcbd;
+}
+
+footer {
+  background-color: rgb(230, 230, 230);
+}
+
+details {
+  margin-block-end: 1rem;
+}
+
+.selected-mission-details {
+  border: 0.5rem solid lightgrey;
+  padding: 0.5rem;
+}
+
+p,
+details,
+summary,
+button,
+input,
+label,
+a {
+  font-size: 1.125rem;
+}
+
+.buttons {
+  margin-block: 1rem 0.25rem;
+}
+
+h1 {
+  color: var(--clr-dice-purple);
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: var(--clr-dice-purple);
+}
+
+a:hover {
+  background: var(--clr-dice-purple);
+  color: white;
+}
+
+button {
+  background: #f8f398;
+  border: 0;
+  padding: 0.75rem;
+}
+
+summary,
+button {
+  cursor: pointer;
+}
+
+.language-select {
+  margin-block-end: 0;
+}
+
+@media screen and (min-width: 900px) {
+  p,
+  details,
+  summary,
+  button,
+  input,
+  label,
+  a {
+    font-size: 1.25rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+}
