@@ -33,6 +33,9 @@ First you need to have [Node.js](https://nodejs.org/en) and [Rust](https://www.r
 
 ## Making a build
 
+1. In `client` folder run: `npm run build`
+1. In `server` directory execute: `cargo build --release`
+
 ## License
 
 Please see the description in [LICENSE](LICENSE).
