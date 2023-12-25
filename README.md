@@ -1,3 +1,5 @@
+![Numerology icon](/client/img/numerology.png "Numerology icon")
+
 # Full Stack Version of Life Path Number Calculator
 
 You can find out your life path number and description with this simple app.
@@ -6,7 +8,7 @@ You can check out [the original app, which is a JavaScript based client](https:/
 
 ## Motivation
 
-My aim is to deepen my Rust language knowledge. In this project I rewrite the client application into a full stack application, in which the Rust part acts as the backend server.
+My aim is to deepen my Rust language knowledge. In this project I rewrote the client application into a full stack application, in which the Rust part acts as the backend server.
 
 ## Features
 
@@ -24,6 +26,12 @@ My aim is to deepen my Rust language knowledge. In this project I rewrite the cl
 ## How to use
 
 First you need to have [Node.js](https://nodejs.org/en) and [Rust](https://www.rust-lang.org/tools/install) installed on your computer.
+
+Open two terminal tabs:
+
+- Windows: run `Windows Terminal` or `cmd` or `powershell`.
+- Mac: run `Terminal`.
+- Linux: run `Terminal`.
 
 Then follow these steps:
 
