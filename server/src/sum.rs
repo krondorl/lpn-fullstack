@@ -16,9 +16,11 @@ pub fn sum_numbers(n: u32) -> u32 {
     let binding = n.to_string();
     let numbers_split = binding.split("");
     for string_number in numbers_split {
-        match string_number.parse::<u32>() {
-            Ok(val) => sum += val,
-            Err(e) => println!("Error when casting to integer: {e}"),
+        if !string_number.is_empty() {
+            match string_number.parse::<u32>() {
+                Ok(val) => sum += val,
+                Err(e) => println!("Error when casting to integer: {e}"),
+            }
         }
     }
     sum
