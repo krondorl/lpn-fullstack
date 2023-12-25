@@ -6,7 +6,7 @@ Find out your life path number and description with this simple app.
 
 You can check out [the original app, a JavaScript-based client](https://github.com/krondorl/life-path-number).
 
-## What is a life path number?
+## What Is a Life Path Number?
 
 A life path number is a number associated with intuitive meanings.
 
@@ -33,7 +33,7 @@ I aim to deepen my Rust language knowledge. In this project, I rewrote the clien
 - Node.js >= v20.9.0
 - Rust >= v1.74.1
 
-## How to use
+## How to Use
 
 First, you need to have [Node.js](https://nodejs.org/en) and [Rust](https://www.rust-lang.org/tools/install) installed on your computer.
 
@@ -50,7 +50,7 @@ Then follow these steps:
 1. In the `client` folder, run: `npm run dev`
 1. Open a browser at `http://localhost:5173/`
 
-### Running examples
+### Running Examples
 
 This is how it looks to run the client and server from the built-in console/terminal in `VS Code` on `Windows 11`.
 
@@ -80,7 +80,33 @@ Data is loaded. Starting server...
 listening on 127.0.0.1:8080
 ```
 
-## Making a build
+## REST API
+
+Only `GET` method is available for calculation.
+
+Example
+
+```
+Request
+
+GET http://localhost:8080/api/lpn-calc/2000-10-10
+
+Response
+
+{
+  "lpn": 4,
+  "role": "builder",
+  "positive": "loyal, reliable, determined, disciplined",
+  "negative": "stubborn, bossy, dominant, too focused on details"
+}
+
+```
+
+Test response using [Postman app](https://www.postman.com/downloads/).
+
+![GET request in Postman](/docs/get-endpoint-postman.png "GET request in Postman")
+
+## Making a Build
 
 1. In the `client` folder, run: `npm run build`
 1. In the `server` directory, execute: `cargo build --release`
@@ -89,6 +115,6 @@ listening on 127.0.0.1:8080
 
 Please see the description in [LICENSE](LICENSE).
 
-## Release history
+## Release History
 
 I published the first version in December 2023.
