@@ -6,6 +6,10 @@ Find out your life path number and description with this simple app.
 
 You can check out [the original app, a JavaScript-based client](https://github.com/krondorl/life-path-number).
 
+## App screenshots
+
+![App screenshot in browser](/docs/lpn-app-screen-in-browser.png "App screenshot in browser")
+
 ## Motivation
 
 I aim to deepen my Rust language knowledge. In this project, I rewrote the client application into a full stack application, in which the Rust part acts as the backend server.
