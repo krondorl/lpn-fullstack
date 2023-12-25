@@ -6,6 +6,10 @@ Find out your life path number and description with this simple app.
 
 You can check out [the original app, a JavaScript-based client](https://github.com/krondorl/life-path-number).
 
+## Motivation
+
+I aim to deepen my Rust language knowledge. In this project, I rewrote the client application into a full stack application, in which the Rust part acts as the backend server.
+
 ## What Is a Life Path Number?
 
 A life path number is a number associated with intuitive meanings.
@@ -16,9 +20,25 @@ This result can help someone:
 - Find out strengths and weaknesses
 - Think about life task/life mission
 
-## Motivation
+## Algorithm
 
-I aim to deepen my Rust language knowledge. In this project, I rewrote the client application into a full stack application, in which the Rust part acts as the backend server.
+1. The calculation starts with the birth date.
+1. We need to sum all numbers.
+1. We sum the numbers recursively until we get a single digit number.
+
+```
+Example date
+
+1900-02-18
+
+(1 + 9 + 0 + 0) + (0 + 2) + (1 + 8)
+10 + 2 + 9
+21
+3
+
+So the life path number is 3.
+
+```
 
 ## Features
 
