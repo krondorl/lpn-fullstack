@@ -14,7 +14,7 @@ use axum::{
 };
 use serde::{Deserialize, Serialize};
 use std::fs;
-use sum::{sum_numbers, sum_recursive};
+use sum::sum_recursive;
 use tower_http::cors::CorsLayer;
 mod sum;
 
@@ -74,7 +74,7 @@ async fn send_lpn(
             let life_path = state.life_paths[(lp_val - 1) as usize].clone();
             Ok(Json(life_path))
         }
-        Err(e) => Err(String::from("Error: life path number calculation error.")),
+        Err(_e) => Err(String::from("Error: life path number calculation error.")),
     }
 }
 
@@ -97,6 +97,9 @@ async fn run_backend(state: AppState) {
 
 #[tokio::main]
 async fn main() {
+    println!();
+    println!("Life path number calculation");
+    println!();
     let data = read_data();
     match data {
         Ok(ok_data) => {
