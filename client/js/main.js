@@ -16,11 +16,13 @@ const role = document.querySelector(".role");
 const positive = document.querySelector(".positive");
 const negative = document.querySelector(".negative");
 
+const apiUrl = "http://localhost:8080/api/lpn-calc";
+
 function closeLPDetails() {
-  summaries.forEach((summary) => {
-    summary.open = false;
-    summary.className = "";
-  });
+  lpn.textContent = "";
+  role.textContent = "";
+  positive.textContent = "";
+  negative.textContent = "";
 }
 
 document.querySelector("form").addEventListener("submit", (e) => {
@@ -35,18 +37,16 @@ document.querySelector("#reset").addEventListener("click", () => {
 
 document.querySelector("#submit").addEventListener("click", () => {
   closeLPDetails();
-  summaries.forEach((summary) => (summary.open = false));
   const _date = document.querySelector("#date").value;
   if (_date && _date.length === 10) {
-    const apiUrl = "http://localhost:8080/api/lpn-calc";
     fetch(`${apiUrl}/${_date}`)
       .then((lpnDataResponse) => {
-        if (lpnDataResponse.ok) {
-          return lpnDataResponse.json();
-        }
-      })
-      .then((json) => {
-        console.log(json);
+        lpnDataResponse.json().then((lpnData) => {
+          lpn.textContent = `Life path number: ${lpnData?.lpn}`;
+          role.textContent = `Role ${lpnData?.role}`;
+          positive.textContent = `Positive traits: ${lpnData?.positive}`;
+          negative.textContent = `Negative traits: ${lpnData?.negative}`;
+        });
       })
       .catch((err) => {
         console.error("Error during fetch: ", err);
