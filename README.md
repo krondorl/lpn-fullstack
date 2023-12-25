@@ -40,6 +40,37 @@ Then follow these steps:
 1. In `client` folder run: `npm run dev`
 1. Open a browser at `http://localhost:5173/`
 
+### Running examples
+
+This is how it looks running the client and server from built in console / terminal in `VS Code` on `Windows 11`.
+
+```
+PS F:\Dev\lpn-fullstack\client> npm run dev
+
+> client@0.1.0 dev
+> vite
+
+
+  VITE v5.0.10  ready in 764 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
+```
+
+```
+PS F:\Dev\lpn-fullstack\server> cargo run
+   Compiling server v0.1.0 (F:\Dev\lpn-fullstack\server)
+    Finished dev [unoptimized + debuginfo] target(s) in 20.65s
+     Running `target\debug\server.exe`
+
+Life path number calculation
+
+Data is loaded. Starting server...
+
+listening on 127.0.0.1:8080
+```
+
 ## Making a build
 
 1. In `client` folder run: `npm run build`
