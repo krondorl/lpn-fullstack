@@ -68,6 +68,7 @@ async fn send_lpn(
     Path(birth_date): Path<String>,
     State(state): State<AppState>,
 ) -> Result<Json<LifePath>, String> {
+    println!("GET {birth_date}");
     let calculated_life_path = calculate_lp_number(birth_date);
     match calculated_life_path {
         Ok(lp_val) => {
@@ -79,13 +80,17 @@ async fn send_lpn(
 }
 
 async fn run_backend(state: AppState) {
+    let origins: [HeaderValue; 2] = [
+        "http://localhost:3000".parse::<HeaderValue>().unwrap(),
+        "http://localhost:3050".parse::<HeaderValue>().unwrap(),
+    ];
     let app = Router::new()
         .route("/api/lpn-calc/:birth_date", get(send_lpn))
         .with_state(state)
         .layer(
             CorsLayer::new()
                 .allow_headers([http::header::CONTENT_TYPE])
-                .allow_origin("http://localhost:3000".parse::<HeaderValue>().unwrap())
+                .allow_origin(origins)
                 .allow_methods([Method::GET]),
         );
     let listener = tokio::net::TcpListener::bind("127.0.0.1:8080")
