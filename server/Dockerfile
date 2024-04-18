@@ -3,8 +3,8 @@ COPY . .
 RUN cargo build --release
 
 FROM debian:bookworm-slim
-COPY --from=builder ./target/release/arcanus-psw ./target/release/arcanus-psw
-CMD ["/target/release/arcanus-psw"]
+COPY --from=builder ./target/release/lpn-server ./target/release/lpn-server
+CMD ["/target/release/lpn-server"]
 
 # Commands
 #

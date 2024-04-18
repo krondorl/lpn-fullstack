@@ -12,4 +12,4 @@ CMD [ "npm", "run", "preview", "--", "--host", "0.0.0.0" ]
 # docker buildx build -t lpn-client:v01 .
 #
 # Run
-# docker run -p 4200:4200 lpn-client:v01
+# docker run -p 3000:3000 lpn-client:v01
