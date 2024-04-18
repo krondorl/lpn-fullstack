@@ -3,8 +3,9 @@ COPY . .
 RUN cargo build --release
 
 FROM debian:bookworm-slim
-COPY --from=builder ./target/release/lpn-server ./target/release/lpn-server
-CMD ["/target/release/lpn-server"]
+COPY --from=builder ./target/release/lpn-server ./lpn-server
+COPY --from=builder ./data.json ./data.json
+CMD ["/lpn-server"]
 
 # Commands
 #
