@@ -17,5 +17,8 @@
   "license": "CC BY-NC-ND 4.0",
   "devDependencies": {
     "vite": "^5.0.4"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-musl": "^4.14.3"
   }
 }
