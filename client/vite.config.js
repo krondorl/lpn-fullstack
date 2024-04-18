@@ -8,10 +8,24 @@ export default defineConfig({
     },
   },
   preview: {
+    proxy: {
+      "/api": {
+        target: "http://localhost:8080/api/lpn-calc",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
     host: "0.0.0.0",
     port: 3000,
   },
   server: {
+    proxy: {
+      "/api": {
+        target: "http://localhost:8080/api/lpn-calc",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
     host: "0.0.0.0",
     port: 3000,
   },
