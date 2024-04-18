@@ -12,4 +12,4 @@ CMD ["/target/release/lpn-server"]
 # docker buildx build -t lpn-server:v01 .
 #
 # Run
-# docker run -p 4200:4200 lpn-server:v01
+# docker run -p 8080:8080 lpn-server:v01
