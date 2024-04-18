@@ -59,6 +59,17 @@ So the life path number is 3.
 
 ## How to Use
 
+### Run with Docker
+
+To run the complete projects, [you will need Docker Desktop running.](https://www.docker.com/products/docker-desktop/)
+
+1. Open a Terminal
+1. Go to the source folder
+1. Execute the command: `docker compose up`
+1. Open browser at http://localhost:3050
+
+### Run with Node.js and Rust
+
 First, you need to have [Node.js](https://nodejs.org/en) and [Rust](https://www.rust-lang.org/tools/install) installed on your computer.
 
 Open two terminal tabs:
