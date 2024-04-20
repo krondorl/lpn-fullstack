@@ -16,7 +16,7 @@ const role = document.querySelector(".role");
 const positive = document.querySelector(".positive");
 const negative = document.querySelector(".negative");
 
-const apiUrl = "/api";
+const apiUrl = "/api/lpn-calc";
 
 function closeLPDetails() {
   lpn.textContent = "";
