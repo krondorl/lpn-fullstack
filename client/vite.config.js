@@ -10,7 +10,7 @@ export default defineConfig({
   preview: {
     proxy: {
       "/api": {
-        target: "http://localhost:8080/api/lpn-calc",
+        target: "http://server:8080/api/lpn-calc",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
